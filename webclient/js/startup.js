@@ -55,13 +55,10 @@ Licensed under the MIT license: <http://www.opensource.org/licenses/mit-license.
             $("#trackartist").html("Track artist: " + data[1]);
             $("#trackalbum").html("Track album: " + data[2]);
             $("#tracklength").html("Track length: " + data[5]);
-            $("#trackart").attr("src", data[3])
-            $("#trackbar").attr("style", "width: " + data[6] + "%")
-            var colorThief = new ColorThief();
-            myImage = $('#trackart');
-            dominantColor = colorThief.getColor(myImage);
+            $("#trackart").attr("src", "art" + data[3] + ".jpg")
 
-            $(".progress-bar").css("background-color", dominantColor);
+            $("#trackbar").attr("style", "width: " + data[6] + "%")
+
         };
 
         AlchemyChatServer.Start();
@@ -70,6 +67,19 @@ Licensed under the MIT license: <http://www.opensource.org/licenses/mit-license.
 
     $(document).ready(function() {
         Connect();
+
+
+
+        dominantColor = "red"
+
+        setTimeout(function() {
+            var colorThief = new ColorThief();
+            myImage = $('#trackart');
+            var image = myImage[0];
+            dominantColor = colorThief.getColor(image);
+            $(".progress-bar").css("background-color", dominantColor);
+
+        }, 1000);
     });
 
 })(window, jQuery);
