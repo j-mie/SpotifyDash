@@ -48,6 +48,8 @@ Licensed under the MIT license: <http://www.opensource.org/licenses/mit-license.
         };
 
         AlchemyChatServer.MessageReceived = function(event) {
+
+
             var data = JSON.parse(event.data)
             $("#trackname").html("Track name: " + data[0]);
             $("#trackartist").html("Track artist: " + data[1]);
@@ -55,6 +57,11 @@ Licensed under the MIT license: <http://www.opensource.org/licenses/mit-license.
             $("#tracklength").html("Track length: " + data[5]);
             $("#trackart").attr("src", data[3])
             $("#trackbar").attr("style", "width: " + data[6] + "%")
+            var colorThief = new ColorThief();
+            myImage = $('#trackart');
+            dominantColor = colorThief.getColor(myImage);
+
+            $(".progress-bar").css("background-color", dominantColor);
         };
 
         AlchemyChatServer.Start();
