@@ -66,7 +66,6 @@ namespace WebSocketSpotify
             Length = mh.GetCurrentTrack().GetLength();
             
             eh.OnTrackChange += TrackChange;
-            eh.OnPlayStateChange += PlayChange;
             eh.OnVolumeChange += VolumeChange;
             eh.OnTrackTimeChange += TimeChange;
 
@@ -102,11 +101,6 @@ namespace WebSocketSpotify
         private static void VolumeChange(VolumeChangeEventArgs e)
         {
             Volume = ((int)(e.new_volume * 100)).ToString() + "%";
-        }
-        private static void PlayChange(PlayStateEventArgs e)
-        {
-            Song = e.playing.ToString();
-
         }
 
         private static void TimeChange(TrackTimeChangeEventArgs e)
