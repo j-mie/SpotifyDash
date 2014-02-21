@@ -81,7 +81,7 @@ namespace WebSocketSpotify
         static void OnReceive(UserContext context)
         {
             Console.WriteLine("Websocket sending update");
-            string[] stuff = new string[] { Song, Artist, Album, AlbumURL, Volume, Time, Math.Round(Percentage).ToString()};
+            string[] stuff = new string[] { Song, Artist, Album, AlbumURL, Volume, Time, Percentage.ToString()};
 
             
 
