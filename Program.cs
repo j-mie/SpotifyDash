@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Net;
 using System.Threading;
 using Alchemy;
@@ -92,23 +91,13 @@ namespace WebSocketSpotify
 
         private static void TrackChange(TrackChangeEventArgs e)
         {
-            WebClient generateNewArt = new WebClient();
-            AlbumURL = e.new_track.GetAlbumArtURL(AlbumArtSize.SIZE_320);
-
-            string randomName = Path.GetRandomFileName();
-            randomName = randomName.Replace(".", string.Empty);
-
-            try
-            {
-                generateNewArt.DownloadString("http://stark.jamiehankins.co.uk/spotifyview/download.php?url=" + AlbumURL + "&rand=" + randomName);
-            }
-            catch{}
-
-            AlbumURL = randomName;
             Song = e.new_track.GetTrackName();
             Length = e.new_track.GetLength();
             Album = e.new_track.GetAlbumName();
             Artist = e.new_track.GetArtistName();
+            AlbumURL = e.new_track.GetAlbumArtURL(AlbumArtSize.SIZE_320);
+            AlbumURL = "http://stark.jamiehankins.co.uk/spotifyimg/" + AlbumURL.Split('/')[3] + '/' + AlbumURL.Split('/')[4];
+            Console.WriteLine(AlbumURL);
         }
 
         private static void VolumeChange(VolumeChangeEventArgs e)

@@ -55,8 +55,7 @@ Licensed under the MIT license: <http://www.opensource.org/licenses/mit-license.
             $("#trackartist").html("Track artist: " + data[1]);
             $("#trackalbum").html("Track album: " + data[2]);
             $("#tracklength").html("Track length: " + data[5]);
-            $("#trackart").attr("src", "art" + data[3] + ".jpg")
-
+            $("#trackart").attr("src", data[3])
             $("#trackbar").attr("style", "width: " + data[6] + "%")
 
         };
@@ -77,7 +76,7 @@ Licensed under the MIT license: <http://www.opensource.org/licenses/mit-license.
             myImage = $('#trackart');
             var image = myImage[0];
             dominantColor = colorThief.getColor(image);
-            $(".progress-bar").css("background-color", dominantColor);
+            $(".progress-bar").css("background-color", "rgb(" + dominantColor.r + "," + dominantColor.g + "," + dominantColor.b + ")");
 
         }, 1000);
     });
