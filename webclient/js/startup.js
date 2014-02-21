@@ -29,7 +29,7 @@ Licensed under the MIT license: <http://www.opensource.org/licenses/mit-license.
             Server: "stark.jamiehankins.co.uk", //webs.jamiehankins.co.uk
             Port: "80",
             Action: 'spotify',
-            DebugMode: true
+            DebugMode: false
         });
 
         console.log('Connecting...');
@@ -61,7 +61,8 @@ Licensed under the MIT license: <http://www.opensource.org/licenses/mit-license.
             myImage = $('#trackart');
             var image = myImage[0];
             dominantColor = colorThief.getColor(image);
-            $(".progress-bar").css("background-color", "rgb(" + dominantColor.r + "," + dominantColor.g + "," + dominantColor.b + ")");
+            console.log(dominantColor)
+            $(".progress-bar").css("background-color", "rgb(" + dominantColor[0] + "," + dominantColor[1] + "," + dominantColor[2] + ")");
         };
 
         AlchemyChatServer.Start();
