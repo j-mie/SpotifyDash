@@ -26,9 +26,9 @@ Licensed under the MIT license: <http://www.opensource.org/licenses/mit-license.
 
         // Set up the Alchemy client object
         AlchemyChatServer = new Alchemy({
-            Server: "localhost", //webs.jamiehankins.co.uk
-            Port: "81",
-            Action: '',
+            Server: "stark.jamiehankins.co.uk", //webs.jamiehankins.co.uk
+            Port: "80",
+            Action: 'spotify',
             DebugMode: true
         });
 
